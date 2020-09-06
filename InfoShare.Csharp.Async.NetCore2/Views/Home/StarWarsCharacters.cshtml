@@ -1,0 +1,45 @@
+﻿@model IEnumerable<InfoShare.Csharp.Async.NetCore2.Models.StarWarsCharacter>
+@{
+	ViewBag.Title = "Star wars characters";
+}
+
+<h2>Star Wars characters</h2>
+
+<form asp-controller="Home" asp-action="StarWarsCharacters">
+	<p>
+		<input type="text" name="searchString">
+		<input type="submit" value="Search" />
+	</p>
+</form>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+			<th>Mass</th>
+			<th>Height</th>
+			<th>BirthYear</th>
+			<th>HairColor</th>
+			<th>SkinColor</th>
+			<th>EyeColor</th>
+			<th>Image</th>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.Name</td>
+			<td>@item.Gender</td>
+			<td>@item.Mass</td>
+			<td>@item.Height</td>
+			<td>@item.BirthYear</td>
+			<td>@item.HairColor</td>
+			<td>@item.SkinColor</td>
+			<td>@item.EyeColor</td>
+			<td><img src="data:image/png;base64, @item.ImageBase64"/></td>
+		</tr>
+	}
+	</tbody>
+</table>
